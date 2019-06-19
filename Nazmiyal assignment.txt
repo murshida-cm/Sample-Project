@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+    <div class="row">
+        <h1>Nazmiyal</h1>
+    </div>
+    <hr />
+
+    <div class="form-group">
+        <div class="row">
+
+            <div class="form-group col-md-4">
+                <label>  Select Product </label>
+                <select id="inputProduct" class="form-control">
+                    <option value="Select Product">Select Product </option>
+                    <option value="Antique Turkish Rug">Antique Turkish Rug </option>
+                    <option value="Carpers">Carpets </option>
+                    <option value="Rugs"> Rug</option>
+                    <option value="Antique Rugs">Antique Rugs </option>
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label> Product ID</label>
+                <input type="text" id="txtBrand" class="form-control" placeholder="Product ID" onkeypress="return isNumberKey(event)" required>
+            </div>
+            <div class="col-md-5">
+
+            </div>
+        </div>
+
+
+
+        <div class="row form-group">
+            <div class="col-md-6">
+                <label> Name</label>
+                <input type="text" id="txtBrand" class="form-control" style="width: 748px;" placeholder="Name">
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-4">
+                <label class="control-label">Price</label>
+                <input type="text" id="txtBrand" class="form-control" placeholder="Price" onkeypress="return isNumberKey(event)" required>
+            </div>
+
+            <div class="col-md-4">
+                <label> Dated</label>
+                <input type="text" id="txtBrand" class="form-control" placeholder="Dated">
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-4">
+                <label class="control-label">Size</label>
+                <input type="text" id="txtBrand" class="form-control" placeholder="Size">
+            </div>
+
+            <div class="col-md-3">
+                <label> Descrtiption</label>
+                <textarea class="rounded-0" id="textarea" cols="48" rows="5" placeholder="Description"></textarea>
+            </div>
+            <div class="col-md-5">
+
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-8">
+                <ul class="nav nav-tabs">
+                    <li><a href="#1stDibs" data-toggle="tab">1stDibs</a></li>
+                    <li><a href="#Artsy" data-toggle="tab">Artsy</a></li>
+                    <li><a href="#Art" data-toggle="tab">Art</a></li>
+                </ul>
+
+                <div class="row tab-content">
+                    <div class="tab-pane active" id="1stDibs">
+
+                        <div class="row form-group" style="padding-left: 32px;">
+                            <div class="col-md-4">
+                                <label>Style</label>
+                                <input type="text" id="txtBrand" class="form-control" placeholder="Style">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label> Origin</label>
+                                <input type="text" id="txtBrand" class="form-control" placeholder="Origin">
+                            </div>
+                        </div>
+
+                        <div class="row form-group" style="padding-left: 32px;">
+                            <div class="col-md-4">
+                                <label>Material</label>
+                                <input type="text" id="txtBrand" class="form-control" placeholder="Material">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label> Condition</label>
+                                <input type="text" id="txtBrand" class="form-control" placeholder="Condition">
+                            </div>
+                        </div>
+
+                        <div class="row form-group" style="padding-left: 32px;">
+                            <div class="col-md-4">
+                                <label>Seller Reference Number</label>
+                                <input type="text" id="txtBrand" class="form-control" placeholder="Seller Reference Number">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label> Reference Number</label>
+                                <input type="text" id="txtBrand" class="form-control" placeholder="Reference Number">
+                            </div>
+                        </div>
+                        <div class="row form-group" style="padding-left: 32px;">
+                            <div class="col-md-4">
+                                <label class="control-label">Seller Location</label>
+                                <input type="text" id="txtBrand" class="form-control" placeholder="Seller Location">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="tab-pane" id="Artsy">
+                        Artsy Tab
+                    </div>
+
+                    <div class="tab-pane" id="Art">
+                        Art Tab
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row col-md-2" style="padding-left: 238px;">
+            <button type="button" class="btn btn-primary" onclick="submit()">Submit</button>
+        </div>
+    </div>
+    <script>
+        function submit() {
+            alert('You have successfully submitted');
+        }
+
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+    </script>
+</body>
+</html>
+
