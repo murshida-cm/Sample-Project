@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+       
+ 
+       
 <style>
 .square{
     height: 200px;
@@ -108,17 +110,23 @@ font-size: 20px;
 option{
     font-size: 20px;
 }
+.a{
+    position:relative;
+    margin-left:50px;
+
+}
 
 </style>
 
 </head>
 <body>
-
-
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+     
+<div id="app">
 <div class="square">
 
 
-    <img class="img" src="logo.png"height:"100",width:"200">
+    <img class="img" src="logo.png">
 
 
 </div>
@@ -135,18 +143,18 @@ option{
                 <option value="mercedes">c</option>
                 <option value="audi">d</option>
               </select></div>
-        <div class="node"><p>PRODUCT ID</p><input type="text" ></div>
+        <div class="node"><p>PRODUCT ID</p><input input v-model="message" type="text" ></div>
     </div>
 
-<div style="height:150px;width:800px;float:left;margin-top: 50px;margin-left: 20px;"><p>NAME</p><input type="text" ></div>
+<div style="height:150px;width:800px;float:left;margin-top: 50px;margin-left: 20px;"><p>NAME</p><input input v-model="msg1" type="text" ></div>
                 
 <div class="row">
-        <div class="node"><p>PRICE</p><input type="text" ></div>
-        <div class="node"><p>DATED</p><input type="text" ></div>
+        <div class="node"><p>PRICE</p><input input v-model="msg2" type="text" ></div>
+        <div class="node"><p>DATED</p><input input v-model="msg3" type="text" ></div>
     </div>
     <div class="row">
-            <div class="node"><p>SIZE</p><input type="text" ></div>
-            <div class="node"><p>DESCRIPTION</p><input type="text" ></div>
+            <div class="node"><p>SIZE</p><input input v-model="msg4" type="text" ></div>
+            <div class="node"><p>DESCRIPTION</p><input input v-model="msg5" type="text" ></div>
         </div>
         <div class="row">
             <div class="node3"><p>1ST DIBS</p></div>
@@ -154,26 +162,47 @@ option{
             <div class="node3"><p>ARTS</p></div>
         </div>
 
+        
 
-
         <div class="row">
-            <div class="node"><p>STYLE</p><input type="text" ></div>
-            <div class="node"><p>ORIGIN</p><input type="text" ></div>
+            <div class="node"><p>STYLE</p><input input v-model="msg6" type="text" ></div>
+            <div class="node"><p>ORIGIN</p><input input v-model="msg7" type="text" ></div>
         </div>
         <div class="row">
-            <div class="node"><p>MATERIAL</p><input type="text" ></div>
-            <div class="node"><p>CONDITION</p><input type="text" ></div>
+            <div class="node"><p>MATERIAL</p><input input v-model="msg8" type="text" ></div>
+            <div class="node"><p>CONDITION</p><input input v-model="msg9" type="text" ></div>
         </div>
         <div class="row">
-            <div class="node"><p>SELLER REf NUM</p><input type="text" ></div>
-            <div class="node"><p>REFERENCE NUMBER</p><input type="text" ></div>
+            <div class="node"><p>SELLER REf NUM</p><input input v-model="msg10" type="text" ></div>
+            <div class="node"><p>REFERENCE NUMBER</p><input input v-model="msg11" type="text" ></div>
         </div>
-        <div style="height:150px;width:800px;float:left;margin-top: 50px;margin-left: 20px;"><p>SELLER LOCATION</p><input type="text" ></div>
+        <div style="height:150px;width:800px;float:left;margin-top: 50px;margin-left: 20px;"><p>SELLER LOCATION</p><input input v-model="msg12" type="text" ></div>
             <div class="a"><form> <input type="submit" value="Submit"></form></div> 
             
             
 
 </div>
+<p class="a">product id:{{ message }}</p>
+<p class="a">name:{{ msg1 }}</p>
+<p class="a">price:{{ msg2 }}</p>
+<p class="a">dated:{{ msg3 }}</p>
+<p class="a">size:{{ msg4 }}</p>
+<p class="a">desc:{{ msg5 }}</p>
+<p class="a">style:{{ msg6 }}</p>
+<p class="a">origin:{{ msg7 }}</p>
+<p class="a">material:{{ msg8 }}</p>
+<p class="a">condition:{{ msg9 }}</p>
+<p class="a">series ref num:{{ msg10 }}</p>
+<p class="a">ref:{{ msg11 }}</p>
+<p class="a">seller loc:{{ msg12 }}</p>
+
+</div>
+<script>
+        var myObject = new Vue({
+           el: '#app',
+           data: {message:'',msg1:'',msg2:'',msg3:'',msg4:'',msg5:'',msg6:'',msg7:'',msg8:'',msg9:'',msg10:'',msg11:'',msg12:''}
+         })
+         </script>
 
 
 </body>
