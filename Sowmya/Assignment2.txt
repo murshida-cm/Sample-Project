@@ -181,7 +181,18 @@ var i, tabcontent, tablinks;
 btnFunction : function(){
 this.show = !this.show;
 },
-
+myFunction : function(event){
+var x=event.target.value;
+if (isNaN(x)) {
+    alert("Product ID must be numeric");
+}
+},
+myFunction1 : function(event){
+var x=event.target.value;
+if (isNaN(x)) {
+    alert("Price must be numeric");
+}
+},
 }
 
   })
