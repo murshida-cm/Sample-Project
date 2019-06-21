@@ -1,8 +1,10 @@
-<!DOCTYPE html>
-<html>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
   <head>
     <style>
+   
+<body>
       input[type=text],
       select {
         width: 100%;
@@ -57,15 +59,16 @@
         background-color: antiquewhite;
       }
 
-      .tab {
+      .tabs {
         overflow: hidden;
+        
       }
 
       /* Style the buttons inside the tab */
 
-      .tab button {
-        background-color: antiquewhite;
-        float: left;
+      .tabs {
+     
+       
         border: thick;
         outline: none; //cursor: pointer;
         padding: 14px 16px;
@@ -81,9 +84,9 @@
 
       /* Create an active/current tablink class */
 
-      .tab button.active {
+    /*  .tabs  {
         background-color: #ccc;
-      }
+      }*/
 
       /* Style the tab content */
 
@@ -99,13 +102,14 @@
     </style>
   </head>
 
-  <body>
-    <form>
+ 
+    
 
       <h1></h1><img class="logo" alt="Nazmiyal Antique Rugs" src="https://cdn.nazmiyalantiquerugs.com/wp-content/uploads/2019/03/nazmiyal-logo-1-1.png">
       <br />
       <br />
-      <table id="myTABLE">
+      
+      <table >
       
  
         <tr>
@@ -115,13 +119,18 @@
         </tr>
         <tr >
         
-          <td id="vue_sample3">
-        
+          <!-- <td id="vue_sample3"> -->
+        <td id="vue_sample3">
             <select v-model="selected">
-  <option v-for="option in options" v-bind:value="option.value">
-    {{ option.text }}
-  </option>
+              <option disabled value="">Please select Product</option>
+  <option>Antique Turkish Rug</option>
+  <option>Carpets</option>
+  <option>Rug</option>
 </select>
+<!--   <option v-for="option in options" v-bind:value="option.value">
+    {{ option.text }} -->
+<!--   </option>
+  </select> -->
             <!-- <select style="width:208px;">
                         <option value="Antique Turkish Rug">Antique Turkish Rug</option>
                         <option value="Carpers">Carpets</option>
@@ -181,30 +190,27 @@
 <!--             <input type="text" id="Size" style="width:208px;" name="Size" placeholder="Product size..."> -->
           </td>
           <td style="padding-left: 223px;">
-            <textarea name="message" style="width:208px; height:38px;"></textarea>
+          <textarea v-model="message"  placeholder="Enter Description" style="width:208px;height:38px"></textarea>
+          <!--   <textarea name="message" style="width:208px; height:38px;"></textarea> -->
           </td>
         </tr>
           
       </table>
 
- <div id="app">
+
  
- </div>
-      <div id="nav" width="208px">
-       <a href='#' class="tab" v-on:click="makeActive('1stDibs')">1stDibs</a>
+
+      <!-- <div id="#app1" width="208px"> -->
+       <!-- <a href='#' class="tab" v-on:click="makeActive('1stDibs')">1stDibs</a>
         <a href='#' class="tab" v-on:click="makeActive('Artsy')">Artsy</a>
-         <a href='#' class="tab" v-on:click="makeActive('Art')">Artsy</a>
-    </div>
-    <div class="content">
-        <div class="boxes" id="1stDibs" v-show="isActiveTab('1stDibs')">
+         <a href='#' class="tab" v-on:click="makeActive('Art')">Art</a>
+         
+       <div class="boxes" id="1stDibs" v-show="isActiveTab('1stDibs')">
         </div>
-        <div class="boxes" id="Artsy" v-show="isActiveTab('Artsy')">
-        </div>
-    </div>
-    
-
-     
-
+        <div class="boxes" id="Artsy" v-show="isActiveTab('Artsy')"> -->
+        <div id="root" class="container" >
+     <tabs>
+    <tab name="1stDibs" :selected="true">
      <table>
           <tr>
             <td style="color:brown; font-weight: bold;">Style</td><td style="color:brown;padding-left: 223px;font-weight: bold;">Origin</td>
@@ -260,26 +266,68 @@
 <!--               <input type="text" id="Seller Location" oninput="myFunction()" name="Seller Location" style="width:208px;" placeholder="Seller Location..."> -->
             </td>
           </tr>
-          <tr>
-            <td>
+          </table>
+    </tab>
+    <tab name="Artsy">
+      <h1>
+   Artsy product
+  </h1> 
+    </tab>
+    <tab name="Art">
+  <h1>
+   Art product
+  </h1> 
+    </tab>
+  </tabs>
+    </div>
+       
+
+     
+<div id="app">
+            
               <br />
-              <button class="button" align="center" >Send Product Updates!</button>
-    
-            </td>
-          </tr>
-    
-    </table> 
-    
-
-      
-    </form>
-  </body>
-
-</html>
-
+              <button v-on:click="alertMe" class="button" align="center">Send Product Updates!</button>      
+           
+           </div>
+  
 <script>
+              
+
+
+
+
+
 new Vue({
-    el: '#app',
+   el: '#vue_sample3',
+   data: {
+   message:"",
+   //checkedNames:[]
+    selected: '',
+/*    options: [
+      { text: 'Antique Turkish Rug', value: 'A' },
+      { text: 'Carpets', value: 'B' },
+      { text: 'Rug', value: 'C' }
+    ], */
+      
+  },
+  }) 
+  new Vue({
+  el: '#app',
+  data: {
+    counter: 0
+  },
+  methods:  {
+  
+ 
+  alertMe:function(){
+  alert("Product has been send!!!'");
+  },
+  
+  }
+})
+
+new Vue({
+    el: '#app1',
     data: {
         choice: '1stDibs' // Home is chosen by default
     },
@@ -288,24 +336,88 @@ new Vue({
             this.choice = val;
         },
         isActiveTab: function(val) {
-          return this.choice === val;
+          return this.choice== val;
         }
     }
 });
 
+Vue.component('tabs', {
+    template: `
+        <div>
+            <div class="tabs">
+              <ul>
+                <li v-for="tab in tabs" :class="{ 'is-active': tab.isActive }">
+                    <a :href="tab.href" @click="selectTab(tab)">{{ tab.name }}</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="tabs-details">
+                <slot></slot>
+            </div>
+        </div>
+    `,
+    
+    data() {
+        return {tabs: [] };
+    },
+    
+    created() {
+        
+        this.tabs = this.$children;
+        
+    },
+    methods: {
+        selectTab(selectedTab) {
+            this.tabs.forEach(tab => {
+                tab.isActive = (tab.name == selectedTab.name);
+            });
+        }
+    }
+});
+
+Vue.component('tab', {
+    
+    template: `
+
+        <div v-show="isActive"><slot></slot></div>
+
+    `,
+    
+    props: {
+        name: { required: true },
+        selected: { default: false}
+    },
+    
+    data() {
+        
+        return {
+            isActive: false
+        };
+        
+    },
+    
+    computed: {
+        
+        href() {
+            return '#' + this.name.toLowerCase().replace(/ /g, '-');
+        }
+    },
+    
+    mounted() {
+        
+        this.isActive = this.selected;
+        
+    }
+});
+
 new Vue({
-   el: '#vue_sample3',
-   data: {
-   message:"",
-   //checkedNames:[]
-    selected: 'A',
-   options: [
-      { text: 'Antique Turkish Rug', value: 'A' },
-      { text: 'Carpets', value: 'B' },
-      { text: 'Rug', value: 'C' }
-    ],
-      
-  },
-   
-}) 
+    el: '#root'
+});
+
+
+
+
 </script>
+
+
