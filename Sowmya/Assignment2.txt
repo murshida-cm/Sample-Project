@@ -14,7 +14,7 @@
  {{ option.text }}</option></select>
         </td>
         <td>
-          <input style="width:352px" class="form-control" id="ProductID" oninput="numFunction()" placeholder="Product ID">
+          <input style="width:352px" class="form-control" id="ProductID" placeholder="Product ID">
         </td>
       </tr>
 
@@ -62,9 +62,9 @@
     </table>
 
     <div class="tab" style="width: 831px;">
-      <button class="tablinks active" v-on:click="openSite(event, '1stDibs')">1stDibs</button>
-      <button class="tablinks" onclick="openSite(event, 'Artsy')">Artsy</button>
-      <button class="tablinks" onclick="openSite(event, 'Art')">Art</button>
+      <button class="tablinks" v-on:click="openSite(event, '1stDibs')">1stDibs</button>
+      <button class="tablinks" v-on:click="openSite(event, 'Artsy')">Artsy</button>
+      <button class="tablinks" v-on:click="openSite(event, 'Art')">Art</button>
     </div>
     <div id="1stDibs" class="tabcontent">
       <table style="width:100%">
@@ -125,8 +125,11 @@
       </table>
     </div>   
     <br/>
-    <button type="button" style="padding-left:5px;border-radius: 5px;background-color: blue;color: white;border-color:blue" v-on:click="btnFunction()"><i><b>Send Product Updates</b></i></button>
-    <p id="result"></p>
+    <button style="padding-left:5px;border-radius: 5px;background-color: blue;color: white;border-color:blue" v-on:click="btnFunction()"><i><b>Send Product Updates</b></i></button>
+    <P v-if="show">
+Product updated successfully!!
+</P>
+    <br/>
   </div>
  </div>
   
@@ -134,24 +137,30 @@ new Vue({
     el: '#app',
     data: {
       message: "",
+      show: false,
+      x:"",
       //checkedNames:[]
       selected: 'A',
       options: [{
-          text: 'ANTIQUE TURKISH OUSHAK RUG',
+          text: 'SELECT',
           value: 'A'
         },
         {
-          text: 'ANTIQUE TURKISH OUSHAK CARPET',
+          text: 'ANTIQUE TURKISH OUSHAK RUG',
           value: 'B'
         },
         {
-          text: 'ANTIQUE TURKISH RUG',
+          text: 'ANTIQUE TURKISH OUSHAK CARPET',
           value: 'C'
         },
         {
-          text: 'ANTIQUE TURKISH CARPET',
+          text: 'ANTIQUE TURKISH RUG',
           value: 'D'
-        }
+        },
+        {
+          text: 'ANTIQUE TURKISH CARPET',
+          value: 'E'
+        },
       ],
       
     },
@@ -169,12 +178,13 @@ var i, tabcontent, tablinks;
   document.getElementById(Site).style.display = "block";
   evt.currentTarget.className += " active";
 },
-btnFunction: function(){
-document.getElementById("result").innerHTML = "Product updated successfully!!";
-}
-}
-  })
+btnFunction : function(){
+this.show = !this.show;
+},
 
+}
+
+  })
 
 body {
   font-family: serif;
