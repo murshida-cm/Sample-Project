@@ -14,7 +14,7 @@
  {{ option.text }}</option></select>
         </td>
         <td>
-          <input style="width:352px" class="form-control" id="ProductID" placeholder="Product ID">
+          <input style="width:352px" class="form-control" id="ProductID" v-on:blur="myFunction" placeholder="Product ID">
         </td>
       </tr>
 
@@ -35,7 +35,7 @@
         </tr>
         <tr>
           <td>
-            <input style="width:352px" class="form-control" id="Price" oninput="numFunction1()" placeholder="Price">
+            <input style="width:352px" class="form-control" id="Price" v-on:blur="myFunction1" placeholder="Price">
           </td>
           <td>
             <input style="width:352px" class="form-control" id="Dated" placeholder="Dated">
@@ -132,7 +132,7 @@ Product updated successfully!!
     <br/>
   </div>
  </div>
-  
+
 new Vue({
     el: '#app',
     data: {
@@ -196,6 +196,7 @@ if (isNaN(x)) {
 }
 
   })
+
 
 body {
   font-family: serif;
