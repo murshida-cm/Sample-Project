@@ -11,10 +11,10 @@
 
 
 
-background-color:lightblue;
+background-color:lightcyan;
 }
 body{
-    background-color:lightgrey;
+    background-color:grey;
 
 }
 .box{
@@ -63,7 +63,7 @@ form{
     height:40px;
     width:300px;
     
-    font-family: Gill Sans Extrabold, sans-serif;
+    font-family: Source Sans Pro,sans-serif;
 }
 .a{
     position:relative;
@@ -71,10 +71,14 @@ form{
     left:20px;
 }
 input{
-    font-size:40px;
+    font-size:30px;
     height:50px;
     width:300px;;
     font-family: Source Sans Pro,sans-serif;
+    border-top:0px;
+    border-right:0px;
+    border-left:0px;
+    border-bottom:5px solid black;
 }
 .node1{
     position: relative;
@@ -83,7 +87,7 @@ input{
     width:400px;
     float:left;
     margin-left:20px;
-    
+    left:50px;
     top:30px;
     
     margin-top: 20px;  
@@ -102,22 +106,54 @@ font-size: 20px;
     position:relative;
     top:30px;
    text-align: center;
-    
+    opacity:0.4;
     margin-top: 20px;    
+    border-radius: 30px;
 }
 option{
     font-size: 20px;
 }
-.a{
-    position:relative;
-    margin-left:50px;
 
-}
 .node3:hover{
-    background-color:#9e9e9e1f;
-    transition:0.5s;
+    background-color:lightgrey;
+    
+    transition:0.3s ease-in;
+    opacity:1;
 }
+.button{
+    position: relative;
+    top:50px;
+    left:0px;
+    background-color:white; /* Green */
+  border:3px solid #008CBA;
+  color: black;
+  padding: 20px 62px;
+  text-align: center;
 
+  display: inline-block;
+  font-size: 26px;
+  margin: 4px 2px;
+ 
+  transition-duration: 0.4s;
+  cursor: pointer;
+
+
+}
+.button:hover {
+  background-color: #008CBA;
+  color: white;
+}
+.bu{
+    height: 150px;
+    width: 400px;
+    float: left;
+    margin-left: 20px;
+    position: relative;
+    top: 30px;
+    margin-top: 20px;
+    left: 50px;
+
+}
 </style>
 
 </head>
@@ -133,7 +169,7 @@ option{
 
 </div>
 <div class="box">
-<h1 style="left:20px;position:relative;top:40px;font-size: 40px;">Nazmiyal</h1>
+<h1 style="left:20px;position:relative;top:40px;font-size: 40px;  font-family: Source Sans Pro,sans-serif;letter-spacing:5px;">NAZMIYAL</h1>
 
     
     
@@ -148,7 +184,7 @@ option{
         <div class="node"><p>PRODUCT ID</p><input input v-model="message" type="text" ></div>
     </div>
 
-<div style="height:150px;width:800px;float:left;margin-top: 50px;margin-left: 20px;"><p>NAME</p><input input v-model="msg1" type="text" ></div>
+<div style="height:150px;width:800px;float:left;margin-top: 50px;margin-left: 20px;position: relative;left:50px;"><p>NAME</p><input input v-model="msg1" type="text" ></div>
                 
 <div class="row">
         <div class="node"><p>PRICE</p><input input v-model="msg2" type="text" ></div>
@@ -175,13 +211,13 @@ option{
             <div class="node"><p>CONDITION</p><input input v-model="msg9" type="text" ></div>
         </div>
         <div class="row">
-            <div class="node"><p>SELLER REf NUM</p><input input v-model="msg10" type="text" ></div>
+            <div class="node"><p>SELLER REF NUM</p><input input v-model="msg10" type="text" ></div>
             <div class="node"><p>REFERENCE NUMBER</p><input input v-model="msg11" type="text" ></div>
         </div>
         <div style="height:150px;width:800px;float:left;margin-top: 50px;    position: relative;
         left: 50px;margin-left: 20px;"><p>SELLER LOCATION</p><input input v-model="msg12" type="text" ></div>
-            <div class="a"><form> <input type="submit" value="Submit"></form></div> 
-            
+           
+           <div class="bu"><button class="button">submit</button></div> 
         </div>       
 
 </div>
@@ -204,7 +240,8 @@ option{
         var myObject = new Vue({
            el: '#app',
            data: {message:'',msg1:'',msg2:'',msg3:'',msg4:'',msg5:'',msg6:'',msg7:'',msg8:'',msg9:'',msg10:'',msg11:'',msg12:'',
-           show:true,},
+           show:true,
+           },
            methods:{
     
     
@@ -218,5 +255,6 @@ option{
 
 </body>
 </html> 
+
 
 
