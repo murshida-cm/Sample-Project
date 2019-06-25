@@ -3,7 +3,7 @@
     <head><style>body{ background-color: lightgrey;}
     .square{
         height: 200px;
-  width: 100%;
+  width: 110%;
   background-color:rgb(89, 89, 255);
     }
     .square2{
@@ -63,6 +63,8 @@ h2{
         height: 40px;
         font-size: 20px;
         font-weight: bold;
+      
+        
     }  
     .val{
          size: 30px;
@@ -105,7 +107,7 @@ h2{
 
 
 .tab button:hover {
-  background-color: rgb(175, 175, 226);
+  background-color:rgb(179, 179, 240);
 }
 
 
@@ -143,7 +145,7 @@ h2{
       <option value="d">jklmn</option>
     </select>
       </div>
-     <div class="rig"><p>product id</p><form><input  v-model="productid" type="text" name="product id" value="4353" size="80"></form></div>
+     <div class="rig"><p>product id</p><input  v-model="productid" type="text" name="product id"  size="80"></div>
     </div>
     <div style="height: 150px;width:2000px;float:left;margin-left:40px; "><p>Name</p>
      <form><input v-model="name" type="text" name="names" value="antique turkish rug" size="150"></form></div>
@@ -159,7 +161,7 @@ h2{
            <div class="tab">
             <button v-on:click="Switch()" class="tablinks">1stdibs</button>
             <button v-on:click="Switch1()" class="tablinks" >artsy</button>
-            <button v-on:click="Switch1()" class="tablinks">art</button>
+            <button v-on:click="Switch2()" class="tablinks">art</button>
           </div>
           <div v-if="show" >  
            <div>
@@ -179,8 +181,8 @@ h2{
                 <div class="rig"><p>seller loc</p> <form><input v-model="loc" type="text" name="seller loc" value="newyork" size="65" > </div>
             </div>
             </div>
-            <div  v-if="show" ><h2 style="position: relative;top:800px;right: 750px;"></h2></div>
-            <div  v-if="show" ><h2 style="position: relative;top:800px;right: 750px;"></h2></div>
+            <div  v-if="show1" ><h2 style="position: relative;top:800px;right: 750px;">*NOT AVAILABLE*</h2></div>
+            <div  v-if="show2" ><h2 style="position: relative;top:800px;right: 750px;">*NOT AVAILABLE*</h2></div>
             <div>
             <form>
                     <input type="button" onclick="alert('Product Updated ')"  value="send product updates" style="background-color: blue;color: white ;position: relative;top: 750px;right: 800px;">
@@ -224,14 +226,25 @@ h2{
      var myObject = new Vue({
         el: '#app',
         data: {productid: '',name: '',price: '',dated: '',size: '',description: '',style: '',origin: '',material: '',condition: '',series: '',ref: '',loc: '',
-        show:false,},
+        show:false, show1:false, show2:false,
+        productdetails :[{productid: "",name:"",price:"" ,dated:"",size: '',description: '',style: '',origin: '',material: '',condition: '',series: '',ref: '',loc: ''}]},
         methods:{
         Switch:function(){
-        this.show = !this.show}, 
-        Switch1:function(){
-        this.show = this.show;
-       } 
-      } })</script>
+        this.show = !this.show
+        this.show1 = false
+        this.show2 = false
+        }, Switch1:function(){
+        this.show = false
+        this.show1 = !this.show1
+        this.show2 = false
+        }, Switch2:function(){
+        this.show = false
+        this.show1 = false
+        this.show2 = !this.show2
+        }, 
          
+      }
+       })</script>
+
 </body>
 </html>
