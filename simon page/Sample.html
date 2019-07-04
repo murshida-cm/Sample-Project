@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+       
+
+       
+<style>
+.square{
+    height: 200px;
+    width:100%;
+
+
+
+background-color:lightcyan;
+}
+body{
+    background-color:grey;
+
+}
+.box{
+    margin:0 auto;
+height:2000px;
+width:1000px;
+background-color:white;
+position:relative;
+top:50px;
+
+}
+.img{
+    position:relative;
+    top:20px;
+    height:150px;
+    width:auto;
+    left:10px;
+}
+
+.node{
+    
+    height:150px;
+    width:400px;
+    float:left;
+    margin-left:20px;
+    position:relative;
+    top:30px;
+    
+    margin-top: 20px;    
+    left: 50px;
+}
+p{
+    font-size:30px; 
+    position:relative;
+    bottom:10px;
+    font-family: Source Sans Pro,sans-serif;
+
+}
+h2{
+    position: relative;
+    top:20px;
+    font-size:35px;
+    font-family: Source Sans Pro,sans-serif;
+}
+form{
+    height:40px;
+    width:300px;
+    
+    font-family: Source Sans Pro,sans-serif;
+}
+.a{
+    position:relative;
+    top:160px;
+    left:20px;
+}
+input{
+    font-size:30px;
+    height:50px;
+    width:300px;;
+    font-family: Source Sans Pro,sans-serif;
+    border-top:0px;
+    border-right:0px;
+    border-left:0px;
+    border-bottom:5px solid black;
+}
+.node1{
+    position: relative;
+  display: inline-block;
+    height:150px;
+    width:400px;
+    float:left;
+    margin-left:20px;
+    left:50px;
+    top:30px;
+    
+    margin-top: 20px;  
+}  
+
+.s{
+width:300px;
+height:42px;
+font-size: 20px;
+}
+.node3{
+    height:150px;
+    width:260px;
+    float:left;
+    margin-left:40px;
+    position:relative;
+    top:30px;
+   text-align: center;
+    opacity:0.4;
+    margin-top: 20px;    
+    border-radius: 30px;
+}
+option{
+    font-size: 20px;
+}
+
+.node3:hover{
+    background-color:lightgrey;
+    
+    transition:0.3s ease-in;
+    opacity:1;
+}
+.button{
+    position: relative;
+    top:50px;
+    left:0px;
+    background-color:white; /* Green */
+  border:3px solid #008CBA;
+  color: black;
+  padding: 20px 62px;
+  text-align: center;
+
+  display: inline-block;
+  font-size: 26px;
+  margin: 4px 2px;
+ 
+  transition-duration: 0.4s;
+  cursor: pointer;
+
+
+}
+.button:hover {
+  background-color: #008CBA;
+  color: white;
+}
+.bu{
+    height: 150px;
+    width: 400px;
+    float: left;
+    margin-left: 20px;
+    position: relative;
+    top: 30px;
+    margin-top: 20px;
+    left: 50px;
+
+}
+</style>
+
+</head>
+<body>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+     
+<div id="app">
+<div class="square">
+
+
+    <img class="img" src="logo.png">
+
+
+</div>
+<div class="box">
+<h1 style="left:20px;position:relative;top:40px;font-size: 40px;  font-family: Source Sans Pro,sans-serif;letter-spacing:5px;">NAZMIYAL</h1>
+
+    
+    
+    <div class="row">
+        <div class="node1"><p>SELECT PRODUCT</p>
+            <select class="s">
+                <option value="volvo">a</option>
+                <option value="saab">b</option>
+                <option value="mercedes">c</option>
+                <option value="audi">d</option>
+              </select></div>
+        <div class="node"><p>PRODUCT ID</p><input input v-model="message" type="text" ></div>
+    </div>
+
+<div style="height:150px;width:800px;float:left;margin-top: 50px;margin-left: 20px;position: relative;left:50px;"><p>NAME</p><input input v-model="msg1" type="text" ></div>
+                
+<div class="row">
+        <div class="node"><p>PRICE</p><input input v-model="msg2" type="text" ></div>
+        <div class="node"><p>DATED</p><input input v-model="msg3" type="text" ></div>
+    </div>
+    <div class="row">
+            <div class="node"><p>SIZE</p><input input v-model="msg4" type="text" ></div>
+            <div class="node"><p>DESCRIPTION</p><input input v-model="msg5" type="text" ></div>
+        </div>
+        <div class="row">
+            <div class="node3"v-on:click="Switch()" ><p>1ST DIBS</p></div>
+            <div class="node3"v-on:click="Switch()" ><p>ARTSY</p></div>
+            <div class="node3"v-on:click="Switch()" ><p>ARTS</p></div>
+        </div>
+
+        
+<div v-if="show">
+        <div class="row">
+            <div class="node"><p>STYLE</p><input input v-model="msg6" type="text" ></div>
+            <div class="node"><p>ORIGIN</p><input input v-model="msg7" type="text" ></div>
+        </div>
+        <div class="row">
+            <div class="node"><p>MATERIAL</p><input input v-model="msg8" type="text" ></div>
+            <div class="node"><p>CONDITION</p><input input v-model="msg9" type="text" ></div>
+        </div>
+        <div class="row">
+            <div class="node"><p>SELLER REF NUM</p><input input v-model="msg10" type="text" ></div>
+            <div class="node"><p>REFERENCE NUMBER</p><input input v-model="msg11" type="text" ></div>
+        </div>
+        <div style="height:150px;width:800px;float:left;margin-top: 50px;    position: relative;
+        left: 50px;margin-left: 20px;"><p>SELLER LOCATION</p><input input v-model="msg12" type="text" ></div>
+           
+           <div class="bu"><button class="button">submit</button></div> 
+        </div>       
+
+</div>
+<p class="a">product id:{{ message }}</p>
+<p class="a">name:{{ msg1 }}</p>
+<p class="a">price:{{ msg2 }}</p>
+<p class="a">dated:{{ msg3 }}</p>
+<p class="a">size:{{ msg4 }}</p>
+<p class="a">desc:{{ msg5 }}</p>
+<p class="a">style:{{ msg6 }}</p>
+<p class="a">origin:{{ msg7 }}</p>
+<p class="a">material:{{ msg8 }}</p>
+<p class="a">condition:{{ msg9 }}</p>
+<p class="a">series ref num:{{ msg10 }}</p>
+<p class="a">ref:{{ msg11 }}</p>
+<p class="a">seller loc:{{ msg12 }}</p>
+
+</div>
+<script>
+        var myObject = new Vue({
+           el: '#app',
+           data: {message:'',msg1:'',msg2:'',msg3:'',msg4:'',msg5:'',msg6:'',msg7:'',msg8:'',msg9:'',msg10:'',msg11:'',msg12:'',
+           show:true,
+           },
+           methods:{
+    
+    
+            Switch:function(){
+     this.show = !this.show;
+   }
+           }
+         })
+         </script>
+
+
+</body>
+</html> 
+
