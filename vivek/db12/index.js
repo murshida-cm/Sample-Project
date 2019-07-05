@@ -36,6 +36,23 @@ app.use(cors());
     console.log( id1)
   
      let sql = `select * from  product1 where productid ="`+id1+`"`; 
+   
+    connection.query (sql, (error, results, fields) => {
+    if (error) {
+        return console.error(error.message);
+    }else{
+        res.send(results)
+    }
+    
+});
+});
+
+
+
+app.get('/api/list', (req,res) =>{
+    
+  
+     let sql = `select * from  product1`; 
      console.log(sql)
     connection.query (sql, (error, results, fields) => {
     if (error) {
@@ -46,6 +63,12 @@ app.use(cors());
     
 });
 });
+
+
+
+
+
+
 
 
       app.post('/api/saveuser', (req,res)=> {

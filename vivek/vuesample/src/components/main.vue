@@ -10,10 +10,9 @@
     <div>
    <div class="rig"><p>product</p>
     <select style="width: 730px;height: 46px;font-size: 20px;font-weight: bold;">
-      <option value="a">Antique turquish aqu rug</option>
-      <option value="b">abcd</option>
-      <option value="c">efghi</option>
-      <option value="d">jklmn</option>
+       <option v-for="option in prod5" v-bind:value="option.productid">
+    {{ option.name1 }}
+  </option>
     </select>
       </div>
      <div class="rig"><p>product id</p><input  v-model="product.productid" type="text" name="product id"  size="80"></div>
@@ -83,6 +82,7 @@
        
         data:function() {
            return{
+             prod5:[],
            product:{
              productid: '',
               name1: '',
@@ -155,7 +155,17 @@
           });
  
        }
+      
      },
+     beforeMount()
+     {
+        userApi.getUser0().then(data => {this.prod5= data;
+        console.log(data);})
+        .catch(error => console.log(error));
+         
+          
+        
+     }
         // components:{
 
         //     sub1

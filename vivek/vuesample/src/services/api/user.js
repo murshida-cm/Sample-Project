@@ -8,6 +8,12 @@ export default {
                       .then(response => {return  response.data}
                          );
   },
+  getUser0() {
+
+    return axios.get(`/api/list`)
+                      .then(response => {return  response.data}
+                         );
+  },
 
 saveUserDetail(data){
   return axios.post('/api/saveuser',data).then(response => {return  response})
