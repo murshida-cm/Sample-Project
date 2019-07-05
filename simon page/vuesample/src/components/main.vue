@@ -19,11 +19,8 @@
     
         <div class="row">
             <div class="node1"><p>SELECT PRODUCT</p>
-                <select class="s">
-                    <option value="volvo">a</option>
-                    <option value="saab">b</option>
-                    <option value="mercedes">c</option>
-                    <option value="audi">d</option>
+                <select class="s" >
+                    <option value="volvo"  v-for="product in products" v-bind:value="product.productid" >{{product.name}}</option>
                 </select></div>
             <div class="node"><p>PRODUCT ID</p><input input v-model="product.productid" type="text" ></div>
         </div>
@@ -102,7 +99,7 @@ import sub from './sub.vue'
            data:function(){
                
                return{
-
+                   products :[],
                    product:{
                productid:'',
                name:'',
@@ -126,13 +123,9 @@ import sub from './sub.vue'
 
 
 
-            getUser(){
+     getUser(){
                   this.$router.push('/sub2')
-    //   console.log("hi")
-      
-    //     userApi.getUser().then(data => {this.product = data[0];console.log(this.product);})
-    //     .catch(error => console.log(error));
-      
+
     },
 
 
@@ -155,7 +148,7 @@ import sub from './sub.vue'
           });
             },    
                
-
+    
      
      
      Switch()
@@ -164,6 +157,16 @@ import sub from './sub.vue'
      }
            
            },
+    beforeMount (){
+
+
+
+        userApi.getUser().then(data => {this.products = data;console.log(this.products)})
+        .catch(error => console.log(error));
+    
+    
+    
+    },
     components:{
                sub,
                },     
